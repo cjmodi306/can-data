@@ -1,0 +1,15 @@
+Log data:
+candump slcan0 -L > {doc_name}
+
+Set up modprobe:
+
+sudo modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
+
+
+CanPlayer:
+canplayer vcan0=slcan0 -l i -I {doc_name}
+
+In a separate terminal
+candump vcan0
